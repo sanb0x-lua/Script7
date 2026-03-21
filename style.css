@@ -55,8 +55,15 @@ body {
     animation: fadeUp 1s ease;
 }
 
-@keyframes fadeDown { from { opacity:0; transform:translateY(-15px);} to{opacity:1;transform:translateY(0);}}
-@keyframes fadeUp { from {opacity:0; transform:translateY(15px);} to{opacity:1; transform:translateY(0);}}
+@keyframes fadeDown {
+    from { opacity:0; transform:translateY(-15px);}
+    to { opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeUp {
+    from { opacity:0; transform:translateY(15px);}
+    to { opacity:1; transform:translateY(0);}
+}
 
 .buttons {
     margin-bottom: 40px;
@@ -100,7 +107,6 @@ body {
     transition: 0.4s;
 }
 
-/* download button animation */
 .download-btn {
     height: 48px;
     display: flex;
@@ -108,11 +114,21 @@ body {
     justify-content: center;
 }
 
-.btn-text { position: relative; z-index:2; }
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
 
-.loading-bars { position: absolute; inset:0; z-index:1; display:none; }
+.loading-bars {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: none;
+}
 
-.download-btn.loading .loading-bars { display:block; }
+.download-btn.loading .loading-bars {
+    display: block;
+}
 
 .loading-bars div {
     position: absolute;
@@ -128,18 +144,83 @@ body {
 .loading-bars div:nth-child(3){left:60%; animation-delay:0.4s;}
 .loading-bars div:nth-child(4){left:80%; animation-delay:0.6s;}
 
-@keyframes move { 0%{transform:translateY(-100%);opacity:0;}20%{opacity:1;}100%{transform:translateY(100%);opacity:0;} }
+@keyframes move {
+    0%{transform:translateY(-100%);opacity:0;}
+    20%{opacity:1;}
+    100%{transform:translateY(100%);opacity:0;}
+}
 
-.title { font-size:22px; margin-bottom:20px; }
-.cards { display:flex; gap:15px; flex-wrap:wrap; justify-content:center; }
-.card { width:100%; max-width:280px; padding:18px; border-radius:16px; background: rgba(255,255,255,0.04); border:1px solid #222; transition:0.3s;}
-.card:hover { transform:translateY(-5px); border-color:#fff; box-shadow:0 10px 25px rgba(255,255,255,0.15);}
-.card h3 {margin-bottom:8px;}
-.card p {font-size:13px;color:#aaa;margin-bottom:12px;}
+.title {
+    font-size:22px;
+    margin-bottom:20px;
+}
 
-.tutorial { max-width:600px; margin:40px auto; text-align:left; padding:15px; border:1px solid #333; border-radius:12px; background: rgba(255,255,255,0.03);}
-.tutorial h2 {text-align:center;margin-bottom:15px;}
-.tutorial ol li {margin:10px 0; padding:5px; transition:0.3s;}
-.tutorial ol li:hover {background: rgba(79,195,247,0.1); border-radius:5px; }
+.cards {
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
 
-footer { margin-top:50px; color:#777; font-size:13px; text-align:center; }
+.card {
+    width:100%;
+    max-width:280px;
+    padding:18px;
+    border-radius:16px;
+    background: rgba(255,255,255,0.04);
+    border:1px solid #222;
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:translateY(-5px);
+    border-color:#fff;
+    box-shadow:0 10px 25px rgba(255,255,255,0.15);
+}
+
+.card h3 {
+    margin-bottom:8px;
+}
+
+.card p {
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:12px;
+}
+
+.tutorial {
+    max-width:600px;
+    margin:40px auto;
+    text-align:left;
+    padding:20px 25px;
+    border:1px solid #333;
+    border-radius:12px;
+    background: rgba(255,255,255,0.03);
+}
+
+.tutorial h2 {
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.tutorial ol {
+    padding-left:20px;
+}
+
+.tutorial ol li {
+    margin:10px 0;
+    padding:6px 0;
+}
+
+.tutorial ol li::marker {
+    color:#fff;
+    font-weight:bold;
+    text-shadow:0 0 10px rgba(255,255,255,0.6);
+}
+
+footer {
+    margin-top:50px;
+    color:#777;
+    font-size:13px;
+    text-align:center;
+}
