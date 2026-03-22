@@ -4,7 +4,10 @@ const playButton = document.getElementById('playButton');
 const videoPlaceholder = document.getElementById('videoPlaceholder');
 const videoWrapper = document.getElementById('videoWrapper');
 const youtubeVideo = document.getElementById('youtubeVideo');
-const videoUrl = 'https://www.youtube.com/embed/BLMcKDqhUvk?autoplay=1&rel=0&modestbranding=1&showinfo=0';
+
+let videoStarted = false;
+
+const videoUrl = 'https://www.youtube.com/embed/BLMcKDqhUvk?autoplay=1&rel=0&modestbranding=1&showinfo=0&controls=1&volume=100';
 
 function createLines() {
     const bg = document.getElementById('bg');
@@ -23,9 +26,20 @@ setInterval(createLines, isMobile ? 3000 : 1500);
 
 if (playButton) {
     playButton.addEventListener('click', function() {
-        youtubeVideo.src = videoUrl;
-        videoPlaceholder.style.display = 'none';
-        videoWrapper.style.display = 'block';
+        if (!videoStarted) {
+            youtubeVideo.src = videoUrl;
+            videoPlaceholder.style.display = 'none';
+            videoWrapper.style.display = 'block';
+            videoStarted = true;
+            
+            setTimeout(() => {
+                try {
+                    if (youtubeVideo.contentWindow) {
+                        youtubeVideo.contentWindow.postMessage('{"event":"command","func":"setVolume","args":[100]}', '*');
+                    }
+                } catch(e) {}
+            }, 1000);
+        }
     });
 }
 
@@ -50,4 +64,4 @@ document.querySelectorAll('.download-btn').forEach(btn => {
             this.classList.remove('loading');
         }, 2000);
     });
-});ы
+});
