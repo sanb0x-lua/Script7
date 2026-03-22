@@ -4,7 +4,7 @@ const playButton = document.getElementById('playButton');
 const videoPlaceholder = document.getElementById('videoPlaceholder');
 const videoWrapper = document.getElementById('videoWrapper');
 const youtubeVideo = document.getElementById('youtubeVideo');
-const videoUrl = 'https://www.youtube.com/embed/BLMcKDqhUvk?autoplay=1&rel=0&modestbranding=1';
+const videoUrl = 'https://www.youtube.com/embed/BLMcKDqhUvk?autoplay=1&rel=0&modestbranding=1&showinfo=0';
 
 function createLines() {
     const bg = document.getElementById('bg');
@@ -50,4 +50,4 @@ document.querySelectorAll('.download-btn').forEach(btn => {
             this.classList.remove('loading');
         }, 2000);
     });
-});
+});ы
